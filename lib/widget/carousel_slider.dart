@@ -48,14 +48,105 @@ class _CarouselImageState extends State<CarouselImage> {
             },
           ),
         ),
-        Padding(
+        Container(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 3),
           child: Text(
             _currentKeyword,
             style: const TextStyle(fontSize: 11),
           ),
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // 내가 찜한 컨텐츠
+            Column(
+              children: [
+                isLiked[_currentPage]
+                    ? IconButton(
+                        icon: const Icon(Icons.check),
+                        onPressed: () {},
+                      )
+                    : IconButton(
+                        icon: const Icon(Icons.add),
+                        onPressed: () {},
+                      ),
+                const Text(
+                  "내가 찜한 컨텐츠",
+                  style: TextStyle(fontSize: 11),
+                ),
+              ],
+            ),
+
+            // 재생
+            Container(
+              padding: const EdgeInsets.only(right: 30),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(5),
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(15),
+                ),
+                onPressed: () {},
+                child: const Row(
+                  children: [
+                    Icon(Icons.play_arrow, color: Colors.black),
+                    Padding(padding: EdgeInsets.all(3)),
+                    Text(
+                      '재생',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // 목록
+            Container(
+              padding: const EdgeInsets.only(right: 10),
+              child: Column(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.info),
+                    onPressed: () {},
+                  ),
+                  const Text(
+                    "정보",
+                    style: TextStyle(fontSize: 11),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: makeIndicator(isLiked, _currentPage),
+          ),
+        )
       ],
     );
   }
+}
+
+List<Widget> makeIndicator(List list, int currentPage) {
+  List<Widget> results = [];
+  for (var i = 0; i < list.length; i++) {
+    results.add(Container(
+      width: 8,
+      height: 8,
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: currentPage == i
+              ? const Color.fromRGBO(255, 255, 255, 0.9)
+              : const Color.fromRGBO(255, 255, 255, 0.4)),
+    ));
+  }
+
+  return results;
 }
