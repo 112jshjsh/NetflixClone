@@ -23,31 +23,25 @@ class _MyAppState extends State<MyApp> {
         primaryColor: Colors.black,
         hintColor: Colors.white,
       ),
-      home: DefaultTabController(
+      home: const DefaultTabController(
         length: 4,
         child: Scaffold(
           body: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             children: [
-              const HomeScreen(),
-              Container(
-                child: const Center(
-                  child: Text('search'),
-                ),
+              HomeScreen(),
+              Center(
+                child: Text('search'),
               ),
-              Container(
-                child: const Center(
-                  child: Text('saved'),
-                ),
+              Center(
+                child: Text('saved'),
               ),
-              Container(
-                child: const Center(
-                  child: Text('additional'),
-                ),
+              Center(
+                child: Text('additional'),
               ),
             ],
           ),
-          bottomNavigationBar: const BottomBar(),
+          bottomNavigationBar: BottomBar(),
         ),
       ),
     );
