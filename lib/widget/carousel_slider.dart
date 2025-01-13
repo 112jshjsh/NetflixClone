@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/model/movie_model.dart';
+// ignore: depend_on_referenced_packages
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:netflix_clone/screen/detail_screen.dart';
 
 class CarouselImage extends StatefulWidget {
   final List<Movie> movies;
@@ -16,7 +18,6 @@ class _CarouselImageState extends State<CarouselImage> {
   late List<Widget> posters;
   late List<bool> isLiked;
 
-  // ignore: prefer_final_fields
   int _currentPage = 0;
   late String _currentKeyword;
 
@@ -104,14 +105,20 @@ class _CarouselImageState extends State<CarouselImage> {
               ),
             ),
 
-            // 목록
+            // 정보
             Container(
               padding: const EdgeInsets.only(right: 10),
               child: Column(
                 children: [
                   IconButton(
                     icon: const Icon(Icons.info),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          fullscreenDialog: true,
+                          builder: (BuildContext context) {
+                            return DetailScreen(movie: movies[_currentPage]);
+                          }));
+                    },
                   ),
                   const Text(
                     "정보",
