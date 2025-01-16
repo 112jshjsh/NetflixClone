@@ -1,16 +1,21 @@
-# netflix_clone
+# Netflix Clone
+Flutter + Firestore
 
-A new Flutter project.
+## Version
+- Flutter 3.19.3 on channel stable
+- Dart 3.3.1
+- DevTools 2.31.1
+<br/>
 
-## Getting Started
+- Android SDK 34.0.0
+- Android Studio 2024.2
+- Windows 10.0.22631.4602
+- Gradle 8.4
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dependencies
+- carousel_slider ^4.2.1
+- flutter_lints ^3.0.0
+- flutter_linkify ^6.0.0
+- url_launcher ^6.3.1
+- firebase_core ^3.4.0
+- cloud_firestore ^5.4.0 
